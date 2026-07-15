@@ -25,3 +25,5 @@ next-env.d.ts
 
 # source document working files
 /tmp/
+
+.vercel
