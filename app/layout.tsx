@@ -22,7 +22,7 @@ const spaceMono = Space_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://blockchain-site-lime.vercel.app"),
+  metadataBase: new URL("https://blockchain-site.krishang.dev"),
   title: {
     default: "Rubyx — Verifiable Manufacturing",
     template: "%s | Rubyx",
