@@ -22,9 +22,57 @@ const spaceMono = Space_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Rubyx — Verifiable Manufacturing",
+  metadataBase: new URL("https://blockchain-site-lime.vercel.app"),
+  title: {
+    default: "Rubyx — Verifiable Manufacturing",
+    template: "%s | Rubyx",
+  },
   description:
-    "A blockchain-secured management network for tamper-proof, multi-printer manufacturing.",
+    "Rubyx is a blockchain-secured control plane for 3D-printer fleets—protecting design IP, authorizing every job, and proving every physical run.",
+  applicationName: "Rubyx",
+  keywords: [
+    "Rubyx",
+    "3D printing",
+    "additive manufacturing",
+    "blockchain",
+    "manufacturing security",
+    "design IP protection",
+  ],
+  authors: [{ name: "Rubyx" }],
+  creator: "Rubyx",
+  publisher: "Rubyx",
+  category: "technology",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "/",
+    siteName: "Rubyx",
+    title: "Rubyx — The Trust Layer for 3D Printing",
+    description:
+      "Protect design IP, authorize every print, and prove every physical run with a shared, tamper-evident manufacturing record.",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Rubyx — The Trust Layer for 3D Printing",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Rubyx — The Trust Layer for 3D Printing",
+    description:
+      "Protect design IP, authorize every print, and prove every physical run with a shared, tamper-evident manufacturing record.",
+    images: ["/opengraph-image"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
