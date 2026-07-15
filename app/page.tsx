@@ -110,7 +110,7 @@ const faq = [
     "No. Designs are encrypted with AES-256 and stored off-chain on IPFS. The chain receives only hashes, CIDs, commitments, and verdicts.",
   ],
   [
-    "How can ForgeLedger prove a print physically happened?",
+    "How can Rubyx prove a print physically happened?",
     "The gateway commits to secret random sample times before execution, records sensor evidence during the job, and reveals the schedule afterward. An attacker never knows which moments must look real.",
   ],
   [
@@ -125,11 +125,14 @@ const faq = [
 
 function BrandMark() {
   return (
-    <span className="brand-mark" aria-hidden="true">
-      <i />
-      <i />
-      <i />
-    </span>
+    <svg className="brand-mark" viewBox="0 0 48 48" aria-hidden="true">
+      <path className="ruby-outline" d="M24 2 43 14 37 37 24 46 11 37 5 14Z" />
+      <path className="ruby-top" d="M24 2 43 14 33 20H15L5 14Z" />
+      <path className="ruby-left" d="m5 14 10 6 9 26-13-9Z" />
+      <path className="ruby-right" d="m43 14-10 6-9 26 13-9Z" />
+      <path className="ruby-core" d="m15 20 9-18 9 18-9 26Z" />
+      <path className="ruby-x" d="m19 25 10 10m0-10L19 35" />
+    </svg>
   );
 }
 
@@ -228,7 +231,7 @@ export default function Home() {
       </div>
 
       <header className="site-header">
-        <a className="brand" href="#top" aria-label="ForgeLedger home"><BrandMark /><span>ForgeLedger</span></a>
+        <a className="brand" href="#top" aria-label="Rubyx home"><BrandMark /><span>Rubyx</span></a>
         <nav className="desktop-nav" aria-label="Primary navigation">
           <a href="#protocol"><Box />Protocol</a>
           <a href="#architecture"><Network />Architecture</a>
@@ -273,7 +276,7 @@ export default function Home() {
       <section className="dark-section protocol-section" id="protocol">
         <div className="section-head section-head--dark">
           <p className="eyebrow">[ PROTOCOL ]</p>
-          <h2>How ForgeLedger secures every print</h2>
+          <h2>How Rubyx secures every print</h2>
           <p>Every critical action moves through a verifiable chain—from encrypted design upload to an immutable final verdict.</p>
         </div>
         <Rule dark>HOW IT WORKS</Rule>
@@ -302,7 +305,7 @@ export default function Home() {
               <div className="repo-row"><span>☆ 0{index + 1}</span><span>⑂ JOB_{84 + index}</span><span>{item.state}</span></div>
               <div className="outcome-file">▱ encrypted/design_{index + 1}.gcode</div>
               <div className="diff-lines"><i /><i /><i /><i /></div>
-              <div className="outcome-copy"><small>FORGELEDGER</small><h3>{item.title}</h3><p>{item.copy}</p></div>
+              <div className="outcome-copy"><small>RUBYX</small><h3>{item.title}</h3><p>{item.copy}</p></div>
               <div className="outcome-result"><span>{item.metric}</span><ArrowRight size={15} /></div>
             </article>
           ))}
@@ -401,7 +404,7 @@ export default function Home() {
         <div className="faq-intro">
           <p className="eyebrow">[ TECHNICAL FAQ ]</p>
           <h2>Questions,<br />answered.</h2>
-          <p>The short version of how ForgeLedger handles trust, privacy, physical proof, and prototype scope.</p>
+          <p>The short version of how Rubyx handles trust, privacy, physical proof, and prototype scope.</p>
           <div className="faq-meta"><strong>05</strong><span>CORE QUESTIONS<br />ABOUT THE PROTOCOL</span></div>
         </div>
         <FaqAccordion items={faq} />
@@ -414,14 +417,14 @@ export default function Home() {
 
       <footer>
         <div className="footer-grid">
-          <div className="footer-brand"><BrandMark /><strong>forge<br />ledger</strong><span><i /> OPERATIONAL</span></div>
+          <div className="footer-brand"><BrandMark /><strong>rubyx</strong><span><i /> OPERATIONAL</span></div>
           <div><b>PRODUCT</b><a href="#protocol">PROTOCOL</a><a href="#architecture">ARCHITECTURE</a><a href="#security">SECURITY</a><a href="#proof">PROOFMESH</a></div>
           <div><b>PROJECT</b><a href="#roadmap">ROADMAP</a><a href="#faq">FAQ</a><a href="#top">OVERVIEW</a><a href="#architecture">TECHNICAL STACK</a></div>
           <div><b>INFRASTRUCTURE</b><a href="https://ethereum.org">ETHEREUM</a><a href="https://ipfs.tech">IPFS</a><a href="https://soliditylang.org">SOLIDITY</a><a href="https://fastapi.tiangolo.com">FASTAPI</a></div>
           <div><b>CONNECT</b><a href="#top">SOURCE PROJECT</a><a href="#security">SECURITY MODEL</a><a href="#faq">DOCUMENTATION</a></div>
         </div>
         <div className="footer-cubes" aria-hidden="true">{Array.from({ length: 28 }, (_, i) => <i key={i} />)}</div>
-        <p className="footer-note">© 2026 FORGELEDGER · RESEARCH PROTOTYPE</p>
+        <p className="footer-note">© 2026 RUBYX · RESEARCH PROTOTYPE</p>
       </footer>
     </main>
   );

@@ -41,11 +41,13 @@ main { overflow: clip; }
   animation: fadeDown .62s .06s cubic-bezier(.22,1,.36,1) both;
 }
 .brand { display: inline-flex; align-items: center; gap: 12px; width: max-content; font: 700 18px var(--font-display), sans-serif; letter-spacing: -.03em; }
-.brand-mark { position: relative; width: 34px; height: 34px; display: inline-block; transform: rotate(45deg); background: var(--ink); }
-.brand-mark i { position: absolute; width: 13px; height: 13px; background: var(--canvas); }
-.brand-mark i:nth-child(1) { top: 4px; left: 4px; }
-.brand-mark i:nth-child(2) { right: 4px; bottom: 4px; }
-.brand-mark i:nth-child(3) { width: 7px; height: 7px; right: 4px; top: 4px; background: var(--green); }
+.brand-mark { width: 38px; height: 38px; display: block; flex: 0 0 auto; overflow: visible; filter: drop-shadow(0 2px 0 rgba(61,59,79,.16)); }
+.brand-mark .ruby-outline { fill: var(--ink); }
+.brand-mark .ruby-top { fill: var(--pink); }
+.brand-mark .ruby-left { fill: var(--green); }
+.brand-mark .ruby-right { fill: var(--blue); }
+.brand-mark .ruby-core { fill: var(--acid); }
+.brand-mark .ruby-x { fill: none; stroke: var(--ink); stroke-width: 3.4; stroke-linecap: square; }
 .desktop-nav { display: flex; align-items: center; justify-content: flex-end; gap: 34px; padding-right: 30px; }
 .desktop-nav a { display: inline-flex; align-items: center; gap: 7px; font: 11px var(--font-mono), monospace; text-transform: uppercase; white-space: nowrap; }
 .desktop-nav svg { width: 13px; height: 13px; stroke-width: 1.5; }
@@ -109,7 +111,7 @@ main { overflow: clip; }
   border-bottom: 1px solid var(--line); background-image: radial-gradient(rgba(61,59,79,.14) .8px, transparent .8px), radial-gradient(ellipse at center, rgba(255,207,252,.34), transparent 60%); background-size: 16px 16px, 100% 100%;
 }
 .quote-mark { width: 86px; height: 86px; display: grid; place-items: center; background: var(--ink); }
-.quote-mark .brand-mark { transform: rotate(45deg) scale(1.25); }
+.quote-mark .brand-mark { width: 54px; height: 54px; }
 .quote-section blockquote { margin: 0; font: 650 clamp(34px, 3.3vw, 54px)/1.06 var(--font-display), sans-serif; letter-spacing: -.04em; text-align: center; }
 .quote-section blockquote em { font-style: italic; }
 .quote-source { align-self: end; padding-bottom: 22px; font: 11px var(--font-mono), monospace; }
@@ -336,11 +338,7 @@ footer { position: relative; min-height: 690px; padding: 0 32px; border-top: 1px
 .footer-grid a svg { display: inline; width: 12px; height: 12px; margin-right: 4px; vertical-align: -2px; }
 .footer-brand { align-items: flex-start; }
 .footer-brand .brand-mark { width: 112px; height: 112px; }
-.footer-brand .brand-mark i { width: 42px; height: 42px; }
-.footer-brand .brand-mark i:nth-child(1) { top: 13px; left: 13px; }
-.footer-brand .brand-mark i:nth-child(2) { right: 13px; bottom: 13px; }
-.footer-brand .brand-mark i:nth-child(3) { width: 24px; height: 24px; right: 13px; top: 13px; }
-.footer-brand strong { color: var(--green); font: 650 55px/.75 var(--font-display), sans-serif; letter-spacing: -.07em; }
+.footer-brand strong { color: var(--green); font: 650 63px/.82 var(--font-display), sans-serif; letter-spacing: -.07em; }
 .footer-brand > span { margin-top: 12px; text-decoration: underline; }
 .footer-brand > span i { display: inline-block; width: 9px; height: 9px; margin-right: 7px; background: var(--green); }
 .footer-cubes { position: absolute; inset: 390px 0 0; }
@@ -412,7 +410,7 @@ footer { position: relative; min-height: 690px; padding: 0 32px; border-top: 1px
   .announcement a { display: none; }
   .site-header { padding: 0 18px; }
   .brand { font-size: 16px; }
-  .brand-mark { width: 29px; height: 29px; }
+  .brand-mark { width: 33px; height: 33px; }
   .mobile-menu nav { top: 112px; }
   .hero { min-height: 820px; grid-template-rows: auto 360px; }
   .hero-copy { padding: 54px 20px 0; }
@@ -473,7 +471,6 @@ footer { position: relative; min-height: 690px; padding: 0 32px; border-top: 1px
   .footer-grid > div { padding: 28px 18px; }
   .footer-brand { grid-column: 1 / -1; grid-row: auto; border-bottom: 1px solid var(--line); }
   .footer-brand .brand-mark { width: 80px; height: 80px; }
-  .footer-brand .brand-mark i { width: 30px; height: 30px; }
   .footer-brand strong { font-size: 48px; }
   .footer-cubes { inset: 640px 0 0; }
 }

@@ -22,7 +22,7 @@ const spaceMono = Space_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ForgeLedger — Verifiable Manufacturing",
+  title: "Rubyx — Verifiable Manufacturing",
   description:
     "A blockchain-secured management network for tamper-proof, multi-printer manufacturing.",
 };
