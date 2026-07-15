@@ -55,9 +55,10 @@ export const metadata: Metadata = {
       "Protect design IP, authorize every print, and prove every physical run with a shared, tamper-evident manufacturing record.",
     images: [
       {
-        url: "/opengraph-image",
+        url: "/rubyx-share.png?v=2",
         width: 1200,
         height: 630,
+        type: "image/png",
         alt: "Rubyx — The Trust Layer for 3D Printing",
       },
     ],
@@ -67,7 +68,7 @@ export const metadata: Metadata = {
     title: "Rubyx — The Trust Layer for 3D Printing",
     description:
       "Protect design IP, authorize every print, and prove every physical run with a shared, tamper-evident manufacturing record.",
-    images: ["/opengraph-image"],
+    images: ["/rubyx-share.png?v=2"],
   },
   robots: {
     index: true,
