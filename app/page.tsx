@@ -3,7 +3,6 @@ import {
   Box,
   Braces,
   Check,
-  ChevronDown,
   CircuitBoard,
   Database,
   Fingerprint,
@@ -21,6 +20,8 @@ import {
   X,
   Zap,
 } from "lucide-react";
+import { FaqAccordion } from "./components/FaqAccordion";
+import { MotionEffects } from "./components/MotionEffects";
 
 const stack = [
   [Hexagon, "Ethereum"],
@@ -219,6 +220,7 @@ function ProtocolVisual({ number }: { number: string }) {
 export default function Home() {
   return (
     <main>
+      <MotionEffects />
       <div className="announcement">
         <CircuitBoard size={17} />
         <span>Introducing ProofMesh: physical print verification on-chain.</span>
@@ -402,14 +404,7 @@ export default function Home() {
           <p>The short version of how ForgeLedger handles trust, privacy, physical proof, and prototype scope.</p>
           <div className="faq-meta"><strong>05</strong><span>CORE QUESTIONS<br />ABOUT THE PROTOCOL</span></div>
         </div>
-        <div className="faq-list">
-          {faq.map(([question, answer], index) => (
-            <details key={question} open={index === 0}>
-              <summary><span className="faq-number">0{index + 1}</span><span>{question}</span><ChevronDown /></summary>
-              <p>{answer}</p>
-            </details>
-          ))}
-        </div>
+        <FaqAccordion items={faq} />
       </section>
 
       <section className="final-cta">
