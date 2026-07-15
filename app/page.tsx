@@ -96,8 +96,8 @@ const safeguards = [
 const milestones = [
   ["MONTH 01", "Protocol foundation", "Freeze interfaces, deploy the local chain, and validate the contract model."],
   ["MONTH 02", "Secure pipeline", "Connect AES-256, IPFS, contracts, printer simulation, and telemetry datasets."],
-  ["MONTHS 03—04", "Physical verification", "Build secret sampling, geometry checks, scheduling, and fleet monitoring."],
-  ["MONTHS 05—06", "Integrated proof", "Exercise tamper scenarios, measure the system, and deliver the complete MVP."],
+  ["MONTHS 03-04", "Physical verification", "Build secret sampling, geometry checks, scheduling, and fleet monitoring."],
+  ["MONTHS 05-06", "Integrated proof", "Exercise tamper scenarios, measure the system, and deliver the complete MVP."],
 ] as const;
 
 const faq = [
@@ -253,7 +253,7 @@ export default function Home() {
         <div className="registration-marks" aria-hidden="true" />
         <div className="hero-copy">
           <h1>The Trust Layer<br />for 3D Printing.</h1>
-          <p>A blockchain-secured control plane for printer fleets—protecting design IP, authorizing every job, and proving every physical run.</p>
+          <p>A blockchain-secured control plane for printer fleets, protecting design IP, authorizing every job, and proving every physical run.</p>
           <div className="joined-actions">
             <CutButton href="#architecture">See architecture</CutButton>
             <CutButton href="#proof" tone="green">How proof works</CutButton>
@@ -269,7 +269,7 @@ export default function Home() {
 
       <section className="quote-section">
         <div className="quote-mark"><BrandMark /></div>
-        <blockquote>“We don&apos;t just store a log. We can <em>prove the log is true</em>—without trusting the machine or its operator.”</blockquote>
+        <blockquote>“We don&apos;t just store a log. We can <em>prove the log is true</em> without trusting the machine or its operator.”</blockquote>
         <div className="quote-source"><strong>THE CORE GUARANTEE</strong><span>Snapshot-commitment verification</span></div>
       </section>
 
@@ -277,7 +277,7 @@ export default function Home() {
         <div className="section-head section-head--dark">
           <p className="eyebrow">[ PROTOCOL ]</p>
           <h2>How Rubyx secures every print</h2>
-          <p>Every critical action moves through a verifiable chain—from encrypted design upload to an immutable final verdict.</p>
+          <p>Every critical action moves through a verifiable chain, from encrypted design upload to an immutable final verdict.</p>
         </div>
         <Rule dark>HOW IT WORKS</Rule>
         <div className="flow-grid">

@@ -24,11 +24,11 @@ const spaceMono = Space_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://blockchain-site.krishang.dev"),
   title: {
-    default: "Rubyx — Verifiable Manufacturing",
+    default: "Rubyx | Verifiable Manufacturing",
     template: "%s | Rubyx",
   },
   description:
-    "Rubyx is a blockchain-secured control plane for 3D-printer fleets—protecting design IP, authorizing every job, and proving every physical run.",
+    "Rubyx is a blockchain-secured control plane for 3D-printer fleets, protecting design IP, authorizing every job, and proving every physical run.",
   applicationName: "Rubyx",
   keywords: [
     "Rubyx",
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "/",
     siteName: "Rubyx",
-    title: "Rubyx — The Trust Layer for 3D Printing",
+    title: "Rubyx | The Trust Layer for 3D Printing",
     description:
       "Protect design IP, authorize every print, and prove every physical run with a shared, tamper-evident manufacturing record.",
     images: [
@@ -59,13 +59,13 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         type: "image/png",
-        alt: "Rubyx — The Trust Layer for 3D Printing",
+        alt: "Rubyx: The Trust Layer for 3D Printing",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rubyx — The Trust Layer for 3D Printing",
+    title: "Rubyx | The Trust Layer for 3D Printing",
     description:
       "Protect design IP, authorize every print, and prove every physical run with a shared, tamper-evident manufacturing record.",
     images: ["/rubyx-share.png?v=2"],
