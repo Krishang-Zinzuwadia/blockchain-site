@@ -176,6 +176,46 @@ function PrinterIllustration() {
   );
 }
 
+function ProtocolVisual({ number }: { number: string }) {
+  if (number === "01") {
+    return (
+      <div className="flow-visual protocol-diagram protocol-diagram--encrypt" aria-label="A design file is encrypted, stored on IPFS, and anchored by its hash on Ethereum">
+        <span className="flow-number">01</span>
+        <div className="diagram-node diagram-node--file"><Box /><small>DESIGN<br />GCODE</small></div>
+        <div className="diagram-step"><LockKeyhole /><small>AES-256</small></div>
+        <div className="diagram-node diagram-node--ipfs"><Database /><small>IPFS<br />bafy…7e2a</small></div>
+        <div className="diagram-anchor"><Hexagon /><small>HASH<br />ON-CHAIN</small></div>
+      </div>
+    );
+  }
+
+  if (number === "02") {
+    return (
+      <div className="flow-visual protocol-diagram protocol-diagram--fleet" aria-label="An authorized operator schedules a job through a smart contract to an available printer">
+        <span className="flow-number">02</span>
+        <svg className="fleet-links" viewBox="0 0 500 210" aria-hidden="true"><path d="M82 105H196M304 105H354M304 105L354 48M304 105l50 57" /></svg>
+        <div className="operator-node"><ShieldCheck /><small>OPERATOR<br />AUTHORIZED</small></div>
+        <div className="contract-node"><Braces /><small>JOB<br />CONTRACT</small></div>
+        <div className="printer-stack"><span><Box />P-01 <b>BUSY</b></span><span><Box />P-02 <b>READY</b></span><span><Box />P-03 <b>IDLE</b></span></div>
+        <span className="assignment-chip">ASSIGNED → P-02</span>
+      </div>
+    );
+  }
+
+  return (
+    <div className="flow-visual protocol-diagram protocol-diagram--verify" aria-label="Secret sensor samples are compared with the expected print profile to produce a verified verdict">
+      <span className="flow-number">03</span>
+      <div className="sensor-chart">
+        <span>LIVE SENSOR TRACE</span>
+        <svg viewBox="0 0 280 80" aria-hidden="true"><path d="M4 56 C28 55 30 18 54 22 S82 68 106 42 S138 13 160 31 S190 66 214 36 S249 17 276 27" /><circle cx="54" cy="22" r="4" /><circle cx="160" cy="31" r="4" /><circle cx="276" cy="27" r="4" /></svg>
+        <div><small>t03</small><small>t09</small><small>t14</small></div>
+      </div>
+      <div className="profile-match"><Fingerprint /><span><small>REFERENCE MATCH</small><b>20 / 20</b></span><Check /></div>
+      <span className="verdict-chip">VERDICT · VERIFIED</span>
+    </div>
+  );
+}
+
 export default function Home() {
   return (
     <main>
@@ -236,13 +276,9 @@ export default function Home() {
         </div>
         <Rule dark>HOW IT WORKS</Rule>
         <div className="flow-grid">
-          {flow.map(({ number, label, title, copy, icon: Icon }) => (
+          {flow.map(({ number, label, title, copy }) => (
             <article key={number}>
-              <div className="flow-visual">
-                <span className="flow-number">{number}</span>
-                <div className="mesh mesh--left" /><Icon /><div className="mesh mesh--right" />
-                <i /><i /><i />
-              </div>
+              <ProtocolVisual number={number} />
               <p className="eyebrow">[ {label} ]</p>
               <h3>{title}</h3>
               <p>{copy}</p>
@@ -317,11 +353,27 @@ export default function Home() {
 
       <section className="proof-section" id="proof">
         <div className="proof-heading"><p className="eyebrow">[ PROOFMESH ]</p><h2>Autonomously Verify Every Print</h2><p>Secret sampling catches false jobs and missed edge cases.</p><CutButton href="#faq">Explore the method</CutButton></div>
-        <div className="proof-landscape" aria-hidden="true">
-          <svg viewBox="0 0 1200 430">
-            {Array.from({ length: 19 }, (_, i) => <path key={i} d={`M40 ${330 - i * 9} C250 ${245 - i * 4}, 340 ${360 - i * 10}, 550 ${280 - i * 5} S920 ${350 - i * 9}, 1160 ${260 - i * 3}`} />)}
-          </svg>
-          <span className="sample sample--one">POWER · OK</span><span className="sample sample--two">THERMAL · OK</span><span className="sample sample--three">GEOMETRY · MATCH</span>
+        <div className="proof-pipeline" aria-label="The ProofMesh commit, sample, reveal, and verification sequence">
+          <article className="proof-stage proof-stage--commit">
+            <span className="proof-stage-number">01</span><p className="eyebrow">COMMIT</p><h3>Lock the sample plan</h3>
+            <div className="commit-card"><LockKeyhole /><small>H(seed + times)</small><code>0x8e4f…c219</code></div>
+            <p>Publish the commitment before the printer starts. The sample times remain secret.</p>
+          </article>
+          <article className="proof-stage proof-stage--sample">
+            <span className="proof-stage-number">02</span><p className="eyebrow">SAMPLE</p><h3>Observe the real job</h3>
+            <div className="mini-trace"><svg viewBox="0 0 250 72" aria-hidden="true"><path d="M2 48 C20 45 23 12 44 20 S69 65 91 40 S120 9 143 28 S170 63 191 34 S224 16 248 24" /><circle cx="44" cy="20" r="4" /><circle cx="143" cy="28" r="4" /><circle cx="248" cy="24" r="4" /></svg><span>t03</span><span>t09</span><span>t14</span></div>
+            <p>Capture power, thermal, filament, and geometry evidence only at committed moments.</p>
+          </article>
+          <article className="proof-stage proof-stage--reveal">
+            <span className="proof-stage-number">03</span><p className="eyebrow">REVEAL</p><h3>Open the schedule</h3>
+            <div className="reveal-card"><code>[ 03, 09, 14 ]</code><span><Check /> COMMITMENT MATCH</span></div>
+            <p>Reveal the seed after execution so anyone can reproduce and verify the sample plan.</p>
+          </article>
+          <article className="proof-stage proof-stage--verdict">
+            <span className="proof-stage-number">04</span><p className="eyebrow">VERIFY</p><h3>Finalize the verdict</h3>
+            <div className="verdict-card"><Fingerprint /><strong>20 / 20</strong><span>SNAPSHOTS VALID</span><b><Check /> VERIFIED</b></div>
+            <p>The contract records one immutable result and unlocks the authorized next action.</p>
+          </article>
         </div>
       </section>
 
