@@ -396,10 +396,19 @@ export default function Home() {
       </section>
 
       <section className="faq-section" id="faq">
-        <div className="faq-decoration" aria-hidden="true" />
-        <h2>FAQ</h2>
+        <div className="faq-intro">
+          <p className="eyebrow">[ TECHNICAL FAQ ]</p>
+          <h2>Questions,<br />answered.</h2>
+          <p>The short version of how ForgeLedger handles trust, privacy, physical proof, and prototype scope.</p>
+          <div className="faq-meta"><strong>05</strong><span>CORE QUESTIONS<br />ABOUT THE PROTOCOL</span></div>
+        </div>
         <div className="faq-list">
-          {faq.map(([question, answer]) => <details key={question}><summary><span>{question}</span><ChevronDown /></summary><p>{answer}</p></details>)}
+          {faq.map(([question, answer], index) => (
+            <details key={question} open={index === 0}>
+              <summary><span className="faq-number">0{index + 1}</span><span>{question}</span><ChevronDown /></summary>
+              <p>{answer}</p>
+            </details>
+          ))}
         </div>
       </section>
 
